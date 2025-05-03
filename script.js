@@ -10,17 +10,17 @@ function calculate() {
     };
     
     let other = parseInt(document.getElementById('other').value) || 0;
-    
     let total = Object.entries(bills).reduce((sum, [denom, count]) => sum + denom * count, 0) + other;
-    
+
     // Find the largest value ending in 00 or 50
     let largestValidTotal = total;
     while (largestValidTotal % 100 !== 0 && largestValidTotal % 50 !== 0) {
         largestValidTotal--;
     }
-    
+
     let difference = total - largestValidTotal;
     let holdBack = {};
+    let totalHoldBack = 0;
 
     // Try reducing amounts logically
     for (let denom of Object.keys(bills).reverse()) {
@@ -28,10 +28,12 @@ function calculate() {
             difference -= denom;
             bills[denom]--;
             holdBack[denom] = (holdBack[denom] || 0) + 1;
+            totalHoldBack += denom; // Sum up the total value held back
         }
     }
 
     document.getElementById('result').innerHTML =
         `<p>Largest valid total: $${largestValidTotal}</p>
-         <p>Hold back these bills: ${JSON.stringify(holdBack)}</p>`;
+         <p>Hold back these bills: ${JSON.stringify(holdBack)}</p>
+         <p>Total amount held back: $${totalHoldBack}</p>`;
 }
