@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bill Optimizer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h2>Bill Optimizer</h2>
+    <form id="billForm">
+        <label>$1 Bills: <input type="number" id="b1" value="0"></label>
+        <label>$2 Bills: <input type="number" id="b2" value="0"></label>
+        <label>$5 Bills: <input type="number" id="b5" value="0"></label>
+        <label>$10 Bills: <input type="number" id="b10" value="0"></label>
+        <label>$20 Bills: <input type="number" id="b20" value="0"></label>
+        <label>$50 Bills: <input type="number" id="b50" value="0"></label>
+        <label>$100 Bills: <input type="number" id="b100" value="0"></label>
+        <label>Other Amount: <input type="number" id="other" value="0"></label>
+        <button type="button" onclick="calculate()">Calculate</button>
+    </form>
+    <div id="result"></div>
+    <script src="script.js"></script>
+</body>
+</html>
